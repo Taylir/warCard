@@ -3,6 +3,9 @@ const baseDeck = {
   deckSuits: ["H", "S", "C", "D"],
 }
 
+const player1: string[] = [];
+const player2: string[] = [];
+
 function makeNewDeck(): string[] {
   const newDeck: string[] = [];
   for (const num of baseDeck.deckValues) {
@@ -25,12 +28,10 @@ function shuffleNewDeck(deck: string[]): string[] {
   }
   return shuffledDeck;
 }
-const shuffledDeck = shuffleNewDeck(makeNewDeck());
 
 function compareCards(card1: string, card2: string): number {
   const card1Value: number = baseDeck.deckValues.indexOf(card1[0]!);
   const card2Vaule: number = baseDeck.deckValues.indexOf(card2[0]!);
-  console.log(card1Value, card2Vaule)
   if (card1Value > card2Vaule) {
     return 1;
   } else if (card1Value < card2Vaule) {
@@ -40,16 +41,18 @@ function compareCards(card1: string, card2: string): number {
   }
 }
 
-console.log(compareCards("3H", "KH"));
+function dealInitalCards(deck: string[]): void {
+  for (let i = 0; i < deck.length; i++) {
+    if (i % 2 == 0) {
+      player1.push(deck[i]!);
+    } else {
+      player2.push(deck[i]!);
+    }
+  }
+}
 
-
-
-
-
-
-
-
-
+const shuffledDeck = shuffleNewDeck(makeNewDeck());
+dealInitalCards(shuffledDeck);
 
 
 
