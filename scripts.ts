@@ -51,8 +51,80 @@ function dealInitalCards(deck: string[]): void {
   }
 }
 
+function playCard(warCards: string[] = []): void {
+  const winner = compareCards(player1[0]!, player2[0]!);
+  console.log(winner)
+  if (winner == 1) {
+    const givenCard: string = player2[0]!;
+    player1.push(givenCard);
+    player1.push(player1[0]!);
+    if (warCards.length > 0) {
+      for (const card of warCards) {
+        player1.push(card);
+      }
+      player1.push(player1[0]!)
+      player1.splice(0, 1)
+    };
+  }
+  if (winner == -1) {
+    const givenCard = player1[0]!;
+    player2.push(givenCard);
+    player2.push(player2[0]!);
+    if (warCards.length > 0) {
+      for (const card of warCards) {
+        player2.push(card);
+      }
+      player2.push(player1[0]!)
+      player2.splice(0, 1)
+    }
+  }
+  if (winner != 0) {
+    player1.splice(0, 1);
+    player2.splice(0, 1);
+  }
+  if (winner == 0) {
+    const warArray: string[] = [...player1.splice(0, 4), ...player2.splice(0, 4)];
+    console.log("warArray:" + warArray, "\n warCards:" + warCards);
+    playCard([...warCards, ...warArray]);
+  }
+
+}
+
 const shuffledDeck = shuffleNewDeck(makeNewDeck());
 dealInitalCards(shuffledDeck);
+console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
+playCard()
+playCard()
+playCard()
+playCard()
+playCard()
+playCard()
+
+console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
