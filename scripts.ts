@@ -90,6 +90,14 @@ function playCard(warCards: string[] = []): void {
 
 }
 
+function checkWinner(): number {
+  if (player1.length <= 0) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+
 const shuffledDeck = shuffleNewDeck(makeNewDeck());
 dealInitalCards(shuffledDeck);
 console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
@@ -101,6 +109,8 @@ playCard()
 playCard()
 
 console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
+
+
 
 
 
