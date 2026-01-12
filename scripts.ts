@@ -90,11 +90,18 @@ function playCard(warCards: string[] = []): void {
 
 }
 
-function checkWinner(): number {
+function runGame(): void {
+  while (player1.length > 0 && player2.length > 0) {
+    playCard();
+    checkWinner()
+  }
+}
+
+function checkWinner(): string {
   if (player1.length <= 0) {
-    return 1;
+    return "Player 1 loses this game! WINNER: PLAYER 2"
   } else {
-    return -1;
+    return "Player 2 loses this game! WINNER: PLAYER 1"
   }
 }
 
@@ -109,6 +116,7 @@ playCard()
 playCard()
 
 console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
+
 
 
 
