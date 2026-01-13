@@ -107,42 +107,5 @@ function checkWinner(): string {
 
 const shuffledDeck = shuffleNewDeck(makeNewDeck());
 dealInitalCards(shuffledDeck);
-console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
-playCard()
-playCard()
-playCard()
-playCard()
-playCard()
-playCard()
 
-console.log(`Player1s cards ${player1} and amount ${player1.length}`, `\nPlayer2s cards ${player2} and amount ${player2.length}`)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(runGame());
