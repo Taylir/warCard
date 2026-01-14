@@ -30,8 +30,11 @@ function shuffleNewDeck(deck: string[]): string[] {
 }
 
 function compareCards(card1: string, card2: string): number {
-  const card1Value: number = baseDeck.deckValues.indexOf(card1[0]!);
-  const card2Vaule: number = baseDeck.deckValues.indexOf(card2[0]!);
+  if (card1 === undefined || card2 == undefined) {
+    console.log(checkWinner());
+  }
+  const card1Value: number = baseDeck.deckValues.indexOf(card1[0]);
+  const card2Vaule: number = baseDeck.deckValues.indexOf(card2[0]);
   if (card1Value > card2Vaule) {
     return 1;
   } else if (card1Value < card2Vaule) {
