@@ -30,11 +30,12 @@ function shuffleNewDeck(deck: string[]): string[] {
 }
 
 function compareCards(card1: string, card2: string): number {
-  if (card1 === undefined || card2 == undefined) {
-    console.log(checkWinner());
+  if (player1.length <= 0 || player2.length <= 0) {
+    checkWinner();
+    return 2;
   }
-  const card1Value: number = baseDeck.deckValues.indexOf(card1[0] ?? "2");
-  const card2Vaule: number = baseDeck.deckValues.indexOf(card2[0] ?? "2");
+  const card1Value: number = baseDeck.deckValues.indexOf(card1[0]!);
+  const card2Vaule: number = baseDeck.deckValues.indexOf(card2[0]!);
   if (card1Value > card2Vaule) {
     return 1;
   } else if (card1Value < card2Vaule) {
@@ -105,7 +106,7 @@ function checkWinner(): string {
 function playRobotGame(): void {
   const shuffledDeck = shuffleNewDeck(makeNewDeck());
   dealInitalCards(shuffledDeck);
-  while (player1.length > 0 || player2.length > 0) {
+  while (player1.length > 0 && player2.length > 0) {
     playCard();
   }
   console.log(checkWinner());
@@ -113,6 +114,10 @@ function playRobotGame(): void {
 }
 
 playRobotGame();
+
+
+
+
 
 
 
