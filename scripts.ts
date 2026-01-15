@@ -55,6 +55,15 @@ function dealInitalCards(deck: string[]): void {
   }
 }
 
+function war(warCards: string[]): void {
+  if (player1.length == 0 || player2.length == 0) {
+    console.log("Player lost due to hitting 0 in war");
+  }
+  const warArray: string[] = [...player1.splice(0, (player1.length >= 4 ? 4 : player1.length - 1)), ...player2.splice(0, (player2.length >= 4 ? 4 : player2.length - 1))];
+  playCard([...warCards, ...warArray]);
+}
+
+
 function playCard(warCards: string[] = []): void {
   const winner = compareCards(player1[0]!, player2[0]!);
   console.log(winner)
@@ -87,11 +96,8 @@ function playCard(warCards: string[] = []): void {
     player2.splice(0, 1);
   }
   if (winner == 0) {
-    const warArray: string[] = [...player1.splice(0, 4), ...player2.splice(0, 4)];
-    console.log("warArray:" + warArray, "\n warCards:" + warCards);
-    playCard([...warCards, ...warArray]);
+    war(warCards);
   }
-
 }
 
 function checkWinner(): string {
