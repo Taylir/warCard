@@ -108,6 +108,9 @@ function checkWinner(): string {
   }
 }
 
+function playerCardPlay() {
+  playCard();
+}
 
 function playRobotGame(): void {
   const shuffledDeck = shuffleNewDeck(makeNewDeck());
@@ -120,11 +123,4 @@ function playRobotGame(): void {
 }
 
 playRobotGame();
-
-
-
-
-
-
-
 
